@@ -1,0 +1,33 @@
+.container{
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 60vw 1fr;
+  grid-template-rows: 50px 1fr 1fr;
+  grid-auto-flow: row;
+}
+
+
+.header {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.left-side {
+  grid-column: 1 / 2;
+
+  .form{
+    grid-row: 2 / 3;
+
+  }
+  .edit{
+    grid-row: 3 / 4;
+
+  }
+
+}
+
+.right-side {
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+
+}
