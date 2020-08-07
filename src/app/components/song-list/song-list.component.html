@@ -1,27 +1,29 @@
 <div class="container">
   <ul>
 
-    <li>
-      <div class="picture">
-        🚗
-      </div>
+
+    <li *ngFor="let song of songs">
+      <!-- <div class="picture">
+
+      </div> -->
       <div class="li-head">
-        <span>Aflitos</span>
-        <span>Felipe Chernicharo</span>
+        <span>{{ song.songname }}</span>
+        <span>{{ song.composer }}</span>
       </div>
       <div class="li-info">
-        <span>Maracatu-Baião</span>
+        <span>{{ song.style }}</span>
         <div class="num-info">
-          <span>♩ = 110</span>
-          <span>Gm</span>
+          <span>♮{{ song.key }}</span>
+          <span>♩{{ song.tempo }}</span>
         </div>
       </div>
+
     </li>
 
 
 
 
-    <li>
+    <!-- <li>
       <div class="picture">
         🚗
       </div>
@@ -38,5 +40,5 @@
         </div>
       </div>
     </li>
-  </ul>
-</div>
+  </ul> -->
+<!-- </div> -->

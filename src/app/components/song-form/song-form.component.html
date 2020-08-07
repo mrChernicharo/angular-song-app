@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="onSubmit(songform)" #songform="ngForm">
   <div class="container">
 
     <div class="form-group songname">
@@ -8,7 +8,9 @@
       id="songname"
       class="form-control"
       ngModel
-      name=songname
+      name="songname"
+      placeholder="Song"
+      required
       >
     </div>
 
@@ -18,20 +20,28 @@
       type="number"
       id="tempo"
       class="form-control"
-      ngModel
-      name=tempo>
+      [ngModel]="defaultTempo"
+      name="tempo"
+      required
+      pattern="^[1-9]+[0-9]*$"
+      >
     </div>
 
     <div class="form-group key">
       <label for="key">Key</label>
-      <input
-      type="number"
+      <select
       id="key"
+      name="key"
       class="form-control"
-      ngModel
-      name=key>
-    </div>
+      [(ngModel)]="defaultKey"
+      required
+      >
+        <option class="option" selected [ngValue]="key" *ngFor="let key of keys; let i = index">
+          {{ key }}
+        </option>
+      </select>
 
+    </div>
 
     <div class="form-group composer">
       <label for="composer">Composer</label>
@@ -40,23 +50,43 @@
       id="composer"
       class="form-control"
       ngModel
-      name=composer>
+      name="composer"
+      required
+      >
     </div>
 
     <div class="form-group style">
       <label for="style">Style</label>
       <input
-      type="number"
+      type="text"
       id="style"
       class="form-control"
       ngModel
-      name=style>
+      name="style"
+      required
+      >
     </div>
 
     <div class="btn-group">
-      <button type="submit" class="save">Save</button>
-      <button type="button" class="clear">Clear</button>
+      <button type="submit" class="save" [disabled]="!songform.valid">Save</button>
+      <button type="button" class="clear" (click)="onClearForm()">Clear</button>
     </div>
 
   </div>
 </form>
+
+
+        <!-- <option *ngFor="let key of keys"
+          title="key"
+          [value]="selectedKey"
+        > {{ key }} -->
+        <!-- <option value="Bb">Bb</option>
+        <option value="Bbm">Bbm</option>
+        <option value="B">B</option>
+        <option value="Bm">Bm</option>
+        <option value="C">C</option>
+        <option value="Cm">Bm</option>
+        <option value="Db">Db</option>
+        <option value="C#m">C#m</option>
+        <option value="D">D</option>
+        <option value="Dm">Dm</option> -->

@@ -9,13 +9,30 @@
   // border: 1px solid blue;
   margin: 2px;
 }
-input{
+input {
   width: 100%;
   height: 24px;
   border-radius: 10px;
   padding: 12px 10px;
+  color: #000;
+
 }
 
+select {
+
+  width: 100%;
+  border-radius: 10px;
+  height: 25px;
+  color: #000;
+
+}
+
+option {
+  margin: 0;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+}
 label {
   font-size: 12px;
   color: #fff;
@@ -55,8 +72,6 @@ label {
 
   .clear {
     background: rgb(114, 114, 114);
-
-
   }
 }
 
